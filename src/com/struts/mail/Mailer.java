@@ -8,7 +8,7 @@ import javax.mail.internet.MimeMessage;
 public class Mailer {
 	public static void send(String to,String subject,String msg){
 	
-		final String user="veertan31@gmail.com";//change accordingly
+		final String user="veerAhmedtan5671@gmail.com";//change accordingly
 		final String pass="hgchg@345hgvhgc%432TAN";
 		
 		//1st step) Get the session object	
