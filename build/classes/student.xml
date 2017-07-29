@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="studentDetails" namespace="/student" extends="struts-default">
+		<interceptors>
+			<interceptor name="cookieCheck" class="com.struts.interceptors.CookieCheck"></interceptor>
+		</interceptors>
+		<global-results>
+			<result name="sessionError">/error.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="sessionError" exception="java.lang.Exception"></exception-mapping>
+		</global-exception-mappings>
+		<action name="getStudentDetails" class="com.struts.action.studentDetails" method="getStudentDetails">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="cookieCheck"></interceptor-ref>
+			<result name="success">/student/success.jsp</result>
+			<result name="loginError">/login/userLogin.jsp</result>
+			<result name="error">/student/error.jsp</result>
+		</action>
+		<action name="getFullDetailsById" class="com.struts.action.OutputMapper" method="getFullDetailsById">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="cookieCheck"></interceptor-ref>
+			<result name="success">/student/studentProfile.jsp</result>
+			<result name="loginError">/login/userLogin.jsp</result>
+			<result name="error">/student/error.jsp</result>
+		</action>
+		<!-- 		<action name="updateStudentDetailsRedirect" class="com.struts.action.studentDetails" method="updateStudentDetailsRedirect"> -->
+<!-- 			<interceptor-ref name="defaultStack"></interceptor-ref> -->
+<!-- 			<interceptor-ref name="cookieCheck"></interceptor-ref> -->
+<!-- 			<result name="success">/student/updateStudent.jsp</result> -->
+<!-- 			<result name="loginError">/login/userLogin.jsp</result> -->
+<!-- 			<result name="error">/student/error.jsp</result> -->
+<!-- 		</action> -->
+<!-- 		<action name="updateStudentDetails" class="com.struts.action.studentDetails" method="updateStudentDetails"> -->
+<!-- 			<interceptor-ref name="defaultStack"></interceptor-ref> -->
+<!-- 			<interceptor-ref name="cookieCheck"></interceptor-ref> -->
+<!-- 			<result name="success" type="redirect">getStudentDetails.action</result> -->
+<!-- 			<result name="error">/student/error.jsp</result> -->
+<!-- 			<result name="loginError">/login/userLogin.jsp</result> -->
+<!-- 			<result name="input">/student/addStudent.jsp</result> -->
+<!-- 		</action> -->
+		<action name="deleteStudentDetails" class="com.struts.action.studentDetails" method="deleteStudentDetails">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="cookieCheck"></interceptor-ref>
+			<result name="success" type="redirect">getStudentDetails.action</result>
+			<result name="loginError">/login/userLogin.jsp</result>
+			<result name="error">/student/error.jsp</result>
+		</action>
+	</package>
+</struts>
