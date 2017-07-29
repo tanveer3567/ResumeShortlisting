@@ -9,7 +9,7 @@ public class Mailer {
 	public static void send(String to,String subject,String msg){
 	
 		final String user="veertan31@gmail.com";//change accordingly
-		final String pass="z@dA1994AtSrazia$08OCT#8994";
+		final String pass="hgchg@345hgvhgc%432TAN";
 		
 		//1st step) Get the session object	
 		Properties props = new Properties();
